@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,9 +17,7 @@ spec:
     spec:
       containers:
         - name: sonar-demo
-          image: python:3.12-slim
-          command: ["python", "-c"]
-          args:
-            - "from http.server import HTTPServer, BaseHTTPRequestHandler; H=type('H',(BaseHTTPRequestHandler,),{'do_GET':lambda s:(s.send_response(200),s.end_headers(),s.wfile.write(b'sonar-demo is running'))}); HTTPServer(('0.0.0.0',8000),H).serve_forever()"
+          image: prabha1221/sonar-demo:3
           ports:
             - containerPort: 8000
+
